@@ -1,0 +1,27 @@
+#myWord{
+    margin: 0;
+    display: block;
+    padding: 0;
+    border: 2px solid;
+
+}
+
+#myWord li{
+    position: relative;
+    list-style: none;
+    margin: 0;
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 1.6em;
+
+}
+
+p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+
+img{
+    margin: 10px;
+    
+}
