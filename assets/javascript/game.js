@@ -8,21 +8,23 @@ var totGuesses=0;
 var guessLeftCntr =0;
 var guessesLeftPTag ;
 var countryImageTag;
+var anthemTag;
 var winsPTag;
 var winsCntr = 0
 var UniqueGuessedLetters=[];
+var audioTag;
 
 
 
-var countries = [{ name: "united states", image: "./assets/images/UnitedStates.png" },
-{ name: "india", image: "./assets/images/India.png" },
-{ name: "france", image: "./assets/images/France.png" },
-{ name: "ecuador", image: "./assets/images/Ecuador.png" },
-{ name: "canada", image: "./assets/images/Canada.png" },
-{ name: "australia", image: "./assets/images/Australia.png" },
-{ name: "mexico", image: "./assets/images/Mexico.png" },
-{ name: "bhutan", image: "./assets/images/Bhutan.png" },
-{ name: "brazil", image: "./assets/images/Brazil.png" }
+var countries = [{ name: "united states", image: "./assets/images/UnitedStates.png",anthem:"./assets/audio/unitedStates.mp3" },
+{ name: "india", image: "./assets/images/India.png",anthem:"./assets/audio/india.mp3" },
+{ name: "france", image: "./assets/images/France.png",anthem:"./assets/audio/france.mp3" },
+{ name: "ecuador", image: "./assets/images/Ecuador.png" ,anthem:"./assets/audio/ecuador.mp3" },
+{ name: "canada", image: "./assets/images/Canada.png",anthem:"./assets/audio/canada.mp3" },
+{ name: "australia", image: "./assets/images/Australia.png",anthem:"./assets/audio/australia.mp3" },
+{ name: "mexico", image: "./assets/images/Mexico.png",anthem:"./assets/audio/mexico.mp3" },
+{ name: "bhutan", image: "./assets/images/Bhutan.png" ,anthem:"./assets/audio/bhutan.mp3" },
+{ name: "brazil", image: "./assets/images/Brazil.png",anthem:"./assets/audio/brazil.mp3" }
 
 ];
 
@@ -34,7 +36,10 @@ function startGame()
     winsPTag= document.getElementById("winsCntr");
     guessedLettersPTag=document.getElementById("guessedLetters");
     countryImageTag = document.getElementById("countryImage");
+    audioTag = document.getElementById("myAudio");
+    //anthemTag = document.getElementById("anthem");
     countryImageTag.src = "./assets/images/world.png";
+    audioTag.src="#";
     var clueHolder = document.getElementById("ClueHolder");
     var myul = document.getElementById("myWord");
     if (myul)
@@ -173,13 +178,10 @@ function updateGame()
          countryImageTag.src= wordToGuess.image;
          winsCntr++;
          winsPTag.innerHTML = winsCntr;
+         audioTag.src=wordToGuess.anthem;
+         audioTag.play();
     }
-    elseif(guessLeftCntr === 0) 
-    {
-        //no more guesses left
-
-
-    }
+    
     
 
 }
